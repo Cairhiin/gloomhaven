@@ -69,11 +69,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _isVisible = false;
+  final ScrollController _scroller = ScrollController();
 
   void _toggleFatMenu() {
     setState(() {
       _isVisible = !_isVisible;
     });
+  }
+
+  void _scrollToTop() {
+    if (_scroller.hasClients) {
+      _scroller.animateTo(0,
+          duration: const Duration(seconds: 1), curve: Curves.easeOut);
+    }
   }
 
   @override
@@ -159,130 +167,143 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Stack(children: [
-          ListView(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/gloomhaven_bg_1.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 0.0, vertical: 32.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Dive into the world of Gloomhaven",
-                        style: Theme.of(context).textTheme.headline2,
+        child: Align(
+          alignment: Alignment.topRight,
+          child: Stack(children: [
+            SingleChildScrollView(
+              controller: _scroller,
+              child: Column(
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/gloomhaven_bg_1.jpg"),
+                        fit: BoxFit.cover,
                       ),
-                      Text(
-                        "and familiarize yourself with the game",
-                        style: Theme.of(context).textTheme.headline2,
-                      ),
-                      const SizedBox(height: 32.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FeatureCard(
-                            title: 'CHEAT SHEET',
-                            subheader: 'A quick overview of the rules',
+                    ),
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0.0, vertical: 32.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Dive into the world of Gloomhaven",
+                            style: Theme.of(context).textTheme.headline2,
                           ),
-                          SizedBox(width: 10.0),
-                          FeatureCard(
-                            title: 'RULES MANUAL',
-                            subheader: 'All the rules in detail',
+                          Text(
+                            "and familiarize yourself with the game",
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
+                          const SizedBox(height: 32.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              FeatureCard(
+                                title: 'CHEAT SHEET',
+                                subheader: 'A quick overview of the rules',
+                              ),
+                              SizedBox(width: 10.0),
+                              FeatureCard(
+                                title: 'RULES MANUAL',
+                                subheader: 'All the rules in detail',
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              FeatureCard(
+                                title: 'VIDEOS',
+                                subheader: 'Quality gameplay videos',
+                              ),
+                              SizedBox(width: 10.0),
+                              FeatureCard(
+                                title: 'TUTORIALS',
+                                subheader:
+                                    'The best place to start for beginners',
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 32.0),
+                          Center(
+                              child: ElevatedButton(
+                                  style: raisedButtonStyle,
+                                  onPressed: () {},
+                                  child: const Text('Create trial account'))),
+                        ],
+                      ),
+                    )),
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/gloomhaven_bg_2.png"),
+                        fit: BoxFit.cover,
+                        opacity: 0.12,
+                      ),
+                    ),
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0.0, vertical: 32.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            "We organize the game and manage the rules,",
+                            style: Theme.of(context).textTheme.headline1,
+                          ),
+                          Text(
+                            "you play and have fun!",
+                            style: Theme.of(context).textTheme.headline1,
+                          ),
+                          const SizedBox(height: 32.0),
+                          Center(
+                            child: Column(
+                              children: [
+                                Text(
+                                    "Using our powerful matchmaking tools and lobbies you can effortlessly join games or create your own. You can ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyText1),
+                                Text(
+                                    "now enjoy Gloomhaven without having to worry about many of the complicated rules or waste time ",
+                                    style:
+                                        Theme.of(context).textTheme.bodyText1),
+                                Text(" finding all the right board pieces.",
+                                    style:
+                                        Theme.of(context).textTheme.bodyText1),
+                                const SizedBox(height: 32.0),
+                                Center(
+                                    child: ElevatedButton(
+                                        style: raisedButtonStyle,
+                                        onPressed: () {},
+                                        child: const Text(
+                                            'Create trial account'))),
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          FeatureCard(
-                            title: 'VIDEOS',
-                            subheader: 'Quality gameplay videos',
-                          ),
-                          SizedBox(width: 10.0),
-                          FeatureCard(
-                            title: 'TUTORIALS',
-                            subheader: 'The best place to start for beginners',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 32.0),
-                      Center(
-                          child: ElevatedButton(
-                              style: raisedButtonStyle,
-                              onPressed: () {},
-                              child: const Text('Create trial account'))),
-                    ],
+                    )),
                   ),
-                )),
+                ],
               ),
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/gloomhaven_bg_2.png"),
-                    fit: BoxFit.cover,
-                    opacity: 0.12,
-                  ),
-                ),
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 0.0, vertical: 32.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "We organize the game and manage the rules,",
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                      Text(
-                        "you play and have fun!",
-                        style: Theme.of(context).textTheme.headline1,
-                      ),
-                      const SizedBox(height: 32.0),
-                      Center(
-                        child: Column(
-                          children: [
-                            Text(
-                                "Using our powerful matchmaking tools and lobbies you can effortlessly join games or create your own. You can ",
-                                style: Theme.of(context).textTheme.bodyText1),
-                            Text(
-                                "now enjoy Gloomhaven without having to worry about many of the complicated rules or waste time ",
-                                style: Theme.of(context).textTheme.bodyText1),
-                            Text(" finding all the right board pieces.",
-                                style: Theme.of(context).textTheme.bodyText1),
-                            const SizedBox(height: 32.0),
-                            Center(
-                                child: ElevatedButton(
-                                    style: raisedButtonStyle,
-                                    onPressed: () {},
-                                    child: const Text('Create trial account'))),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
-              ),
-            ],
-          ),
-          Positioned(
-            left: 0.0,
-            top: 0.0,
-            child: FatMenu(
-              isVisible: _isVisible,
             ),
-          )
-        ]),
+            Positioned(
+              left: 0.0,
+              top: 0.0,
+              child: FatMenu(
+                isVisible: _isVisible,
+              ),
+            )
+          ]),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          _scrollToTop();
+        },
         tooltip: 'To top',
         backgroundColor: Theme.of(context).colorScheme.secondary,
         child: const Icon(Icons.arrow_upward_outlined),
