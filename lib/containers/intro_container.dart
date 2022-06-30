@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'featurecard.dart';
+import '/components/featurecard.dart';
 
 class IntroContainer extends StatelessWidget {
   const IntroContainer({
@@ -20,7 +20,7 @@ class IntroContainer extends StatelessWidget {
       ),
       child: Center(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 42.0),
+        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 52.0),
         child: Column(
           children: [
             Text(
@@ -61,12 +61,6 @@ class IntroContainer extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 32.0),
-            Center(
-                child: ElevatedButton(
-                    style: raisedButtonStyle,
-                    onPressed: () {},
-                    child: const Text('Create trial account'))),
           ],
         ),
       )),

@@ -19,7 +19,7 @@ class FeatureCard extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: SizedBox(
-        width: 300,
+        width: 335,
         child: Row(
           children: <Widget>[
             Expanded(
