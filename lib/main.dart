@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'fatmenu.dart';
-import 'featurecard.dart';
+import 'intro_container.dart';
+import 'matchmaking_container.dart';
+import 'displaycard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,9 +43,7 @@ class MyApp extends StatelessWidget {
                 )
               ]),
           headline3: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w500,
-              color: Color(0xff534340)),
+              fontSize: 20.0, fontWeight: FontWeight.w600, color: Colors.black),
           headline4: TextStyle(
               fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
           headline6: TextStyle(
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
               color: Color(0xff534340)),
           subtitle1: TextStyle(fontSize: 14.0, color: Color(0xff534340)),
           bodyText1: TextStyle(fontSize: 16.0, height: 1.5),
-          bodyText2: TextStyle(fontSize: 13.0),
+          bodyText2: TextStyle(fontSize: 15.0),
         ),
       ),
       home: const MyHomePage(),
@@ -100,10 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 250.0,
+        leadingWidth: 350.0,
         leading: Image.asset('assets/logo.png'),
         title: Row(
           children: [
+            const SizedBox(width: 100.0),
             TextButton(
               style: buttonStyle,
               onPressed: () {},
@@ -174,119 +175,50 @@ class _MyHomePageState extends State<MyHomePage> {
               controller: _scroller,
               child: Column(
                 children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/gloomhaven_bg_1.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                        child: Padding(
+                  IntroContainer(raisedButtonStyle: raisedButtonStyle),
+                  MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
+                  Center(
+                      child: Container(
+                    color: const Color(0xffB22A16).withOpacity(0.11),
+                    child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0.0, vertical: 32.0),
                       child: Column(
                         children: [
                           Text(
-                            "Dive into the world of Gloomhaven",
-                            style: Theme.of(context).textTheme.headline2,
-                          ),
-                          Text(
-                            "and familiarize yourself with the game",
-                            style: Theme.of(context).textTheme.headline2,
+                            "Get started now and invite your friends!",
+                            style: Theme.of(context).textTheme.headline1,
                           ),
                           const SizedBox(height: 32.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
-                              FeatureCard(
-                                title: 'CHEAT SHEET',
-                                subheader: 'A quick overview of the rules',
-                              ),
-                              SizedBox(width: 10.0),
-                              FeatureCard(
-                                title: 'RULES MANUAL',
-                                subheader: 'All the rules in detail',
-                              ),
+                              DisplayCard(
+                                  header: "CREATE ACCOUNT",
+                                  subheader:
+                                      "Create a trial account and start playing right away through our powerful matchmaking tools",
+                                  icon: Icon(Icons.account_circle_outlined,
+                                      size: 100, color: Colors.white)),
+                              SizedBox(width: 16.0),
+                              DisplayCard(
+                                  header: "INVITE FRIENDS",
+                                  subheader:
+                                      "Share a link, invite your friends and enjoy Gloomhaven together, just like at home",
+                                  icon: Icon(Icons.group_add_outlined,
+                                      size: 100, color: Colors.white)),
+                              SizedBox(width: 16.0),
+                              DisplayCard(
+                                  header: "PLAY GAME",
+                                  subheader:
+                                      "Set up your game lobby, choose your mode of play, send a link to your friends and start playing",
+                                  icon: Icon(Icons.games_outlined,
+                                      size: 100, color: Colors.white)),
                             ],
                           ),
-                          const SizedBox(height: 10.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              FeatureCard(
-                                title: 'VIDEOS',
-                                subheader: 'Quality gameplay videos',
-                              ),
-                              SizedBox(width: 10.0),
-                              FeatureCard(
-                                title: 'TUTORIALS',
-                                subheader:
-                                    'The best place to start for beginners',
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 32.0),
-                          Center(
-                              child: ElevatedButton(
-                                  style: raisedButtonStyle,
-                                  onPressed: () {},
-                                  child: const Text('Create trial account'))),
                         ],
-                      ),
-                    )),
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/gloomhaven_bg_2.png"),
-                        fit: BoxFit.cover,
-                        opacity: 0.12,
                       ),
                     ),
-                    child: Center(
-                        child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 0.0, vertical: 32.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "We organize the game and manage the rules,",
-                            style: Theme.of(context).textTheme.headline1,
-                          ),
-                          Text(
-                            "you play and have fun!",
-                            style: Theme.of(context).textTheme.headline1,
-                          ),
-                          const SizedBox(height: 32.0),
-                          Center(
-                            child: Column(
-                              children: [
-                                Text(
-                                    "Using our powerful matchmaking tools and lobbies you can effortlessly join games or create your own. You can ",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1),
-                                Text(
-                                    "now enjoy Gloomhaven without having to worry about many of the complicated rules or waste time ",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1),
-                                Text(" finding all the right board pieces.",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText1),
-                                const SizedBox(height: 32.0),
-                                Center(
-                                    child: ElevatedButton(
-                                        style: raisedButtonStyle,
-                                        onPressed: () {},
-                                        child: const Text(
-                                            'Create trial account'))),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                  ),
+                  ))
                 ],
               ),
             ),
