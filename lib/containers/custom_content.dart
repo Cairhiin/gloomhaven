@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
 import '/components/featurecard.dart';
 
-class IntroContainer extends StatelessWidget {
-  const IntroContainer({
+class CustomContentContainer extends StatelessWidget {
+  const CustomContentContainer({
     Key? key,
-    required this.raisedButtonStyle,
   }) : super(key: key);
-
-  final ButtonStyle raisedButtonStyle;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/gloomhaven_bg_1.jpg"),
+          image: AssetImage("assets/gloomhaven_bg_3.jpg"),
           fit: BoxFit.cover,
         ),
       ),
       child: Center(
           child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 52.0),
+        padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 32.0),
         child: Column(
           children: [
             Text(
-              "Dive into the world of Gloomhaven",
+              "Create your own scenarios, dungeons and even campaigns",
               style: Theme.of(context).textTheme.headline2,
             ),
             Text(
-              "and familiarize yourself with the game",
+              "or play content made by other players",
               style: Theme.of(context).textTheme.headline2,
             ),
             const SizedBox(height: 50.0),
@@ -36,13 +33,13 @@ class IntroContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 FeatureCard(
-                  title: 'CHEAT SHEET',
-                  subheader: 'A quick overview of the rules',
+                  title: 'GAME EDITOR',
+                  subheader: 'Create your own content',
                 ),
                 SizedBox(width: 10.0),
                 FeatureCard(
-                  title: 'RULES MANUAL',
-                  subheader: 'All the rules in detail',
+                  title: 'STATE MANAGER',
+                  subheader: 'Manage the state of an offline game',
                 ),
               ],
             ),
@@ -51,13 +48,13 @@ class IntroContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 FeatureCard(
-                  title: 'VIDEOS',
-                  subheader: 'Quality gameplay videos',
+                  title: 'CUSTOM CONTENT',
+                  subheader: 'Browse a list of player made content',
                 ),
                 SizedBox(width: 10.0),
                 FeatureCard(
-                  title: 'TUTORIALS',
-                  subheader: 'The best place to start for beginners',
+                  title: 'OFFLINE',
+                  subheader: 'Take your game offline',
                 ),
               ],
             ),

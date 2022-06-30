@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'fatmenu.dart';
-import '/containers/intro_container.dart';
-import '/containers/matchmaking_container.dart';
-import '/containers/card_list.dart';
+import 'components/fatmenu.dart';
+import 'containers/intro.dart';
+import 'containers/matchmaking.dart';
+import 'containers/card_list.dart';
+import 'containers/custom_content.dart';
+import 'containers/gameboard.dart';
+import 'containers/feature_list.dart';
+import 'containers/footer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,35 +29,44 @@ class MyApp extends StatelessWidget {
           color: Color(0xffB22A16),
         ),
         textTheme: const TextTheme(
-          headline1: TextStyle(
-              fontFamily: "Merriweather",
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.black),
-          headline2: TextStyle(
-              fontFamily: "Merriweather",
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              shadows: [
-                Shadow(
-                  offset: Offset(0.0, 3.0),
-                  blurRadius: 2.0,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                )
-              ]),
-          headline3: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.w600, color: Colors.black),
-          headline4: TextStyle(
-              fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
-          headline6: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.w700,
-              color: Color(0xff534340)),
-          subtitle1: TextStyle(fontSize: 14.0, color: Color(0xff534340)),
-          bodyText1: TextStyle(fontSize: 16.0, height: 1.5),
-          bodyText2: TextStyle(fontSize: 15.0),
-        ),
+            headline1: TextStyle(
+                fontFamily: "Merriweather",
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+            headline2: TextStyle(
+                fontFamily: "Merriweather",
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    offset: Offset(0.0, 3.0),
+                    blurRadius: 2.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  )
+                ]),
+            headline3: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w600,
+                color: Colors.black),
+            headline4: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+                color: Colors.white),
+            headline6: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w700,
+                color: Color(0xff534340)),
+            subtitle1: TextStyle(fontSize: 14.0, color: Color(0xff534340)),
+            subtitle2: TextStyle(
+                fontSize: 16.0,
+                color: Colors.white,
+                fontWeight: FontWeight.w700),
+            bodyText1: TextStyle(fontSize: 16.0, height: 1.5),
+            bodyText2: TextStyle(fontSize: 15.0),
+            labelMedium:
+                TextStyle(fontSize: 15.0, color: Colors.white, height: 1.5)),
       ),
       home: const MyHomePage(),
     );
@@ -178,18 +191,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   IntroContainer(raisedButtonStyle: raisedButtonStyle),
                   MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
                   CardListContainer(raisedButtonStyle: raisedButtonStyle),
-                  Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/gloomhaven_bg_3.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Center(
-                        child: Column(
-                      children: [],
-                    )),
-                  )
+                  const CustomContentContainer(),
+                  GameboardContainer(raisedButtonStyle: raisedButtonStyle),
+                  FeatureList(raisedButtonStyle: raisedButtonStyle),
+                  const Footer()
                 ],
               ),
             ),
@@ -208,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _scrollToTop();
         },
         tooltip: 'To top',
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+        backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.arrow_upward_outlined),
       ),
     );
