@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/fatmenu.dart';
 import '../containers/footer.dart';
 import '../views/landing_page.dart';
+import '../components/dashboard_tabs.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -31,28 +32,8 @@ class _DashboardViewState extends State<DashboardView> {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      primary: Theme.of(context).primaryColor,
-      minimumSize: const Size(88, 45),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(5)),
-      ),
-    );
-
-    final ButtonStyle menuButtonStyle = ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(const Color(0xffFFDAD2)),
-        foregroundColor: MaterialStateProperty.all(const Color(0xff534340)));
-
-    final ButtonStyle menuSelectedButtonStyle = ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
-        foregroundColor: MaterialStateProperty.all(Colors.white));
-
     final ButtonStyle buttonStyle =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
-
-    int currentPageIndex = 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -140,69 +121,7 @@ class _DashboardViewState extends State<DashboardView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column(
-                          children: [
-                            SizedBox(
-                              width: 744.0,
-                              height: 80,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffB22A16)
-                                        .withOpacity(0.05),
-                                    border: Border.all(
-                                      color: const Color(0xffB22A16)
-                                          .withOpacity(0.00),
-                                    ),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(8))),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 28.0),
-                                        child: TextButton(
-                                            style: menuSelectedButtonStyle,
-                                            onPressed: () {},
-                                            child: const Text('Statistics')),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 28.0),
-                                        child: TextButton(
-                                            style: menuButtonStyle,
-                                            onPressed: () {},
-                                            child: const Text('Achievements')),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 28.0),
-                                        child: TextButton(
-                                            style: menuButtonStyle,
-                                            onPressed: () {},
-                                            child: const Text('Badges')),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 28.0),
-                                        child: TextButton(
-                                            style: menuButtonStyle,
-                                            onPressed: () {},
-                                            child: const Text('Titles')),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                        const DashboardTabs(),
                         const SizedBox(width: 24.0),
                         Column(
                           children: [
