@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Gloomhaven',
-      initialRoute: '/',
+      initialRoute: 'LandingPageView.routeName',
       routes: {
         LandingPageView.routeName: ((context) => const LandingPageView()),
         DashboardView.routeName: ((context) => const DashboardView()),
@@ -194,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: LandingPageViewPass(
+      body: LandingPageViews(
           scroller: _scroller,
           raisedButtonStyle: raisedButtonStyle,
           isVisible: _isVisible),

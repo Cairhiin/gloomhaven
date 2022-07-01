@@ -16,6 +16,7 @@ class DashboardView extends StatelessWidget {
         alignment: Alignment.topRight,
         child: Stack(children: [
           SingleChildScrollView(
+            primary: false,
             controller: args.scroller,
             child: Column(
               children: const [Footer()],
