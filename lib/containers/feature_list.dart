@@ -56,12 +56,12 @@ class FeatureList extends StatelessWidget {
               children: const [
                 FeatureCard(
                   title: 'REWARDS',
-                  subheader: 'Earn achievements, badges, and avatars',
+                  subheader: 'Earn achievements, and cosmetics',
                 ),
                 SizedBox(width: 10.0),
                 FeatureCard(
                   title: 'THREE GAME MODES',
-                  subheader: 'Play the campaign, scenarios or dungeons',
+                  subheader: 'Play campaign, scenarios or dungeons',
                 ),
               ],
             ),

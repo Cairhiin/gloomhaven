@@ -40,8 +40,19 @@ class _DashboardViewState extends State<DashboardView> {
       ),
     );
 
+    final ButtonStyle menuButtonStyle = ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(const Color(0xffFFDAD2)),
+        foregroundColor: MaterialStateProperty.all(const Color(0xff534340)));
+
+    final ButtonStyle menuSelectedButtonStyle = ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
+        foregroundColor: MaterialStateProperty.all(Colors.white));
+
     final ButtonStyle buttonStyle =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
+
+    int currentPageIndex = 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -122,7 +133,95 @@ class _DashboardViewState extends State<DashboardView> {
               primary: false,
               controller: _scroller,
               child: Column(
-                children: const [Text("Hello World!"), Footer()],
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                              width: 744.0,
+                              height: 80,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: const Color(0xffB22A16)
+                                        .withOpacity(0.05),
+                                    border: Border.all(
+                                      color: const Color(0xffB22A16)
+                                          .withOpacity(0.00),
+                                    ),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(8))),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 28.0),
+                                        child: TextButton(
+                                            style: menuSelectedButtonStyle,
+                                            onPressed: () {},
+                                            child: const Text('Statistics')),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 28.0),
+                                        child: TextButton(
+                                            style: menuButtonStyle,
+                                            onPressed: () {},
+                                            child: const Text('Achievements')),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 28.0),
+                                        child: TextButton(
+                                            style: menuButtonStyle,
+                                            onPressed: () {},
+                                            child: const Text('Badges')),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 28.0),
+                                        child: TextButton(
+                                            style: menuButtonStyle,
+                                            onPressed: () {},
+                                            child: const Text('Titles')),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(width: 24.0),
+                        Column(
+                          children: [
+                            SizedBox(
+                              width: 360.0,
+                              height: 940.0,
+                              child: Container(
+                                color:
+                                    const Color(0xffB22A16).withOpacity(0.05),
+                                child: Row(children: const []),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const Footer()
+                ],
               ),
             ),
             Positioned(

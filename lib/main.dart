@@ -29,8 +29,9 @@ class MyApp extends StatelessWidget {
       },
       theme: ThemeData(
         primaryColor: const Color(0xffB22A16),
-        colorScheme: ColorScheme.fromSwatch()
-            .copyWith(secondary: const Color(0xff775650)),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+            secondary: const Color(0xff775650),
+            outline: const Color(0xff534340)),
         fontFamily: "RobotoCondensed",
         appBarTheme: const AppBarTheme(
           color: Color(0xffB22A16),
