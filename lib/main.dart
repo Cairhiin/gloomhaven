@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'components/fatmenu.dart';
-import 'containers/intro.dart';
-import 'containers/matchmaking.dart';
-import 'containers/card_list.dart';
-import 'containers/custom_content.dart';
-import 'containers/gameboard.dart';
-import 'containers/feature_list.dart';
-import 'containers/footer.dart';
+import 'package:gloomhaven/views/dashboard.dart';
+import 'views/landing_page.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class ScreenArguments {
+  final bool isVisible;
+  final ButtonStyle raisedButtonStyle;
+  final ScrollController scroller;
+
+  ScreenArguments(this.isVisible, this.raisedButtonStyle, this.scroller);
 }
 
 class MyApp extends StatelessWidget {
@@ -20,6 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Gloomhaven',
+      initialRoute: '/',
+      routes: {
+        LandingPageView.routeName: ((context) => const LandingPageView()),
+        DashboardView.routeName: ((context) => const DashboardView()),
+      },
       theme: ThemeData(
         primaryColor: const Color(0xffB22A16),
         colorScheme: ColorScheme.fromSwatch()
@@ -160,7 +167,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   TextButton(
                     style: buttonStyle,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        DashboardView.routeName,
+                        arguments:
+                            ScreenArguments(_isVisible, buttonStyle, _scroller),
+                      );
+                    },
                     child: Text(
                       'LOG IN',
                       style: Theme.of(context).textTheme.headline4,
@@ -180,34 +194,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Stack(children: [
-            SingleChildScrollView(
-              controller: _scroller,
-              child: Column(
-                children: [
-                  IntroContainer(raisedButtonStyle: raisedButtonStyle),
-                  MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
-                  CardListContainer(raisedButtonStyle: raisedButtonStyle),
-                  const CustomContentContainer(),
-                  GameboardContainer(raisedButtonStyle: raisedButtonStyle),
-                  FeatureList(raisedButtonStyle: raisedButtonStyle),
-                  const Footer()
-                ],
-              ),
-            ),
-            Positioned(
-              left: 0.0,
-              top: 0.0,
-              child: FatMenu(
-                isVisible: _isVisible,
-              ),
-            )
-          ]),
-        ),
-      ),
+      body: LandingPageViewPass(
+          scroller: _scroller,
+          raisedButtonStyle: raisedButtonStyle,
+          isVisible: _isVisible),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _scrollToTop();
