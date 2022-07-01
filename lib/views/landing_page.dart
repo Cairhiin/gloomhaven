@@ -7,7 +7,7 @@ import '../containers/custom_content.dart';
 import '../containers/gameboard.dart';
 import '../containers/feature_list.dart';
 import '../containers/footer.dart';
-import '../main.dart';
+import '../views/dashboard.dart';
 
 class LandingPageView extends StatefulWidget {
   const LandingPageView({Key? key}) : super(key: key);
@@ -15,10 +15,10 @@ class LandingPageView extends StatefulWidget {
   static const routeName = '/landingPage';
 
   @override
-  State<MyHomePage> createState() => _LandingPageView();
+  State<LandingPageView> createState() => _LandingPageView();
 }
 
-class _LandingPageView extends State<MyHomePage> {
+class _LandingPageView extends State<LandingPageView> {
   bool _isVisible = false;
   final ScrollController _scroller = ScrollController();
 
@@ -98,7 +98,9 @@ class _LandingPageView extends State<MyHomePage> {
                 children: [
                   TextButton(
                     style: buttonStyle,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, DashboardView.routeName);
+                    },
                     child: Text(
                       'LOG IN',
                       style: Theme.of(context).textTheme.headline4,
@@ -118,10 +120,35 @@ class _LandingPageView extends State<MyHomePage> {
           ),
         ],
       ),
-      body: LandingPageViews(
-          scroller: _scroller,
-          raisedButtonStyle: raisedButtonStyle,
-          isVisible: _isVisible),
+      body: Center(
+        child: Align(
+          alignment: Alignment.topRight,
+          child: Stack(children: [
+            SingleChildScrollView(
+              primary: false,
+              controller: _scroller,
+              child: Column(
+                children: [
+                  IntroContainer(raisedButtonStyle: raisedButtonStyle),
+                  MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
+                  CardListContainer(raisedButtonStyle: raisedButtonStyle),
+                  const CustomContentContainer(),
+                  GameboardContainer(raisedButtonStyle: raisedButtonStyle),
+                  FeatureList(raisedButtonStyle: raisedButtonStyle),
+                  const Footer()
+                ],
+              ),
+            ),
+            Positioned(
+              left: 0.0,
+              top: 0.0,
+              child: FatMenu(
+                isVisible: _isVisible,
+              ),
+            )
+          ]),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _scrollToTop();
@@ -129,52 +156,6 @@ class _LandingPageView extends State<MyHomePage> {
         tooltip: 'To top',
         backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.arrow_upward_outlined),
-      ),
-    );
-  }
-}
-
-class LandingPageViews extends StatelessWidget {
-  const LandingPageViews(
-      {super.key,
-      required this.isVisible,
-      required this.raisedButtonStyle,
-      required this.scroller});
-
-  final bool isVisible;
-  final ButtonStyle raisedButtonStyle;
-  final ScrollController scroller;
-
-  @override
-  Widget build(BuildContext context) {
-    // final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
-    return Center(
-      child: Align(
-        alignment: Alignment.topRight,
-        child: Stack(children: [
-          SingleChildScrollView(
-            primary: false,
-            controller: scroller,
-            child: Column(
-              children: [
-                IntroContainer(raisedButtonStyle: raisedButtonStyle),
-                MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
-                CardListContainer(raisedButtonStyle: raisedButtonStyle),
-                const CustomContentContainer(),
-                GameboardContainer(raisedButtonStyle: raisedButtonStyle),
-                FeatureList(raisedButtonStyle: raisedButtonStyle),
-                const Footer()
-              ],
-            ),
-          ),
-          Positioned(
-            left: 0.0,
-            top: 0.0,
-            child: FatMenu(
-              isVisible: isVisible,
-            ),
-          )
-        ]),
       ),
     );
   }
