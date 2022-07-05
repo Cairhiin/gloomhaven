@@ -6,18 +6,9 @@ void main() {
   runApp(const MyApp());
 }
 
-class ScreenArguments {
-  final bool isVisible;
-  final ButtonStyle raisedButtonStyle;
-  final ScrollController scroller;
-
-  ScreenArguments(this.isVisible, this.raisedButtonStyle, this.scroller);
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +32,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: "Merriweather",
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.black),
+                color: Color(0xff534340)),
             headline2: TextStyle(
                 fontFamily: "Merriweather",
                 fontSize: 24.0,
@@ -51,16 +42,20 @@ class MyApp extends StatelessWidget {
                   Shadow(
                     offset: Offset(0.0, 3.0),
                     blurRadius: 2.0,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color(0xff534340),
                   )
                 ]),
             headline3: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w600,
-                color: Colors.black),
+                color: Color(0xff534340)),
             headline4: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
+                color: Colors.white),
+            headline5: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
                 color: Colors.white),
             headline6: TextStyle(
                 fontSize: 14.0,

@@ -129,8 +129,15 @@ class _DashboardViewState extends State<DashboardView> {
                               width: 360.0,
                               height: 940.0,
                               child: Container(
-                                color:
-                                    const Color(0xffB22A16).withOpacity(0.05),
+                                decoration: BoxDecoration(
+                                    color: const Color(0xffB22A16)
+                                        .withOpacity(0.05),
+                                    border: Border.all(
+                                      color: const Color(0xffB22A16)
+                                          .withOpacity(0.00),
+                                    ),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(8))),
                                 child: Row(children: const []),
                               ),
                             ),

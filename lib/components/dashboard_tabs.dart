@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dashboard_level_card.dart';
+import 'dashboard_friends_card.dart';
 
 class DashboardTabs extends StatefulWidget {
   const DashboardTabs({Key? key}) : super(key: key);
@@ -19,13 +21,18 @@ class _DashboardTabsState extends State<DashboardTabs> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle menuButtonStyle = ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(const Color(0xffFFDAD2)),
         foregroundColor: MaterialStateProperty.all(const Color(0xff534340)));
 
     final ButtonStyle menuSelectedButtonStyle = ButtonStyle(
         backgroundColor:
             MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
         foregroundColor: MaterialStateProperty.all(Colors.white));
+
+    const TextStyle buttonTextStyle = TextStyle(fontWeight: FontWeight.bold);
+
+    final ButtonStyle actionButtonStyle = ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all(Theme.of(context).primaryColor));
 
     return Column(
       children: [
@@ -49,7 +56,8 @@ class _DashboardTabsState extends State<DashboardTabs> {
                         onPressed: () {
                           _setSelectedTab(0);
                         },
-                        child: const Text('Statistics')),
+                        child:
+                            const Text('STATISTICS', style: buttonTextStyle)),
                   ),
                 ),
                 Expanded(
@@ -60,7 +68,8 @@ class _DashboardTabsState extends State<DashboardTabs> {
                         onPressed: () {
                           _setSelectedTab(1);
                         },
-                        child: const Text('Achievements')),
+                        child:
+                            const Text('ACHIEVEMENTS', style: buttonTextStyle)),
                   ),
                 ),
                 Expanded(
@@ -71,7 +80,7 @@ class _DashboardTabsState extends State<DashboardTabs> {
                         onPressed: () {
                           _setSelectedTab(2);
                         },
-                        child: const Text('Badges')),
+                        child: const Text('BADGES', style: buttonTextStyle)),
                   ),
                 ),
                 Expanded(
@@ -82,7 +91,7 @@ class _DashboardTabsState extends State<DashboardTabs> {
                         onPressed: () {
                           _setSelectedTab(3);
                         },
-                        child: const Text('Titles')),
+                        child: const Text('TITLES', style: buttonTextStyle)),
                   ),
                 ),
               ],
@@ -90,24 +99,35 @@ class _DashboardTabsState extends State<DashboardTabs> {
           ),
         ),
         const SizedBox(height: 32.0),
-        Container(
-            decoration: BoxDecoration(
-                color: const Color(0xffB22A16).withOpacity(0.05),
-                border: Border.all(
-                  color: const Color(0xffB22A16).withOpacity(0.00),
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(8))),
-            child: Row(
-              children: [
-                Card(
-                    elevation: 4.0,
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 20.0),
-                        child: SizedBox(
-                            width: 250.0, height: 275.0, child: Column())))
-              ],
-            )),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const MyLevelCard(),
+            const SizedBox(width: 22.0),
+            FriendsCard(actionButtonStyle: actionButtonStyle),
+          ],
+        ),
+        const SizedBox(height: 16.0),
+        const Text("MY HEROES",
+            style: TextStyle(
+                fontSize: 36.0,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff534340))),
+        const SizedBox(height: 16.0),
+        const Card(
+            elevation: 2.0,
+            color: const Color(0xffF4E9E8),
+            shape: RoundedRectangleBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+            ),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+              child: SizedBox(
+                width: 315.0,
+                height: 215.0,
+              ),
+            ))
       ],
     );
   }
