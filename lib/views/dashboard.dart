@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../components/fatmenu.dart';
 import '../containers/footer.dart';
 import '../views/landing_page.dart';
-import '../components/dashboard_tabs.dart';
+import '../containers/dashboard_tabs.dart';
+import '../components/dashboard/dashboard_result_card.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -116,33 +117,15 @@ class _DashboardViewState extends State<DashboardView> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(32.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 0.0, vertical: 32.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const DashboardTabs(),
-                        const SizedBox(width: 24.0),
-                        Column(
-                          children: [
-                            SizedBox(
-                              width: 360.0,
-                              height: 940.0,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: const Color(0xffB22A16)
-                                        .withOpacity(0.05),
-                                    border: Border.all(
-                                      color: const Color(0xffB22A16)
-                                          .withOpacity(0.00),
-                                    ),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(8))),
-                                child: Row(children: const []),
-                              ),
-                            ),
-                          ],
-                        )
+                      children: const [
+                        DashboardTabs(),
+                        SizedBox(width: 24.0),
+                        GamesPlayedSidebar()
                       ],
                     ),
                   ),
@@ -168,6 +151,94 @@ class _DashboardViewState extends State<DashboardView> {
         backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.arrow_upward_outlined),
       ),
+    );
+  }
+}
+
+class GamesPlayedSidebar extends StatelessWidget {
+  const GamesPlayedSidebar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 360.0,
+          child: Container(
+            decoration: BoxDecoration(
+                color: const Color(0xffB22A16).withOpacity(0.05),
+                border: Border.all(
+                  color: const Color(0xffB22A16).withOpacity(0.00),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(8))),
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("LAST GAMES",
+                        style: Theme.of(context).textTheme.headline3),
+                    const Text("View all games")
+                  ],
+                ),
+                const SizedBox(height: 16.0),
+                const Text("Today"),
+                const SizedBox(height: 16.0),
+                const ResultCard(
+                    title: "Scoundrel",
+                    subtitle: "Scenario",
+                    result: "W",
+                    imageName: "assets/scoundrel.jpg"),
+                const ResultCard(
+                    title: "Brute",
+                    subtitle: "Campaign",
+                    result: "L",
+                    imageName: "assets/brute.jpg"),
+                const ResultCard(
+                    title: "Scoundrel",
+                    subtitle: "Scenario",
+                    result: "L",
+                    imageName: "assets/scoundrel.jpg"),
+                const ResultCard(
+                    title: "Tinkerer",
+                    subtitle: "Dungeon",
+                    result: "W",
+                    imageName: "assets/tinkerer.jpg"),
+                const ResultCard(
+                    title: "Brute",
+                    subtitle: "Campaign",
+                    result: "W",
+                    imageName: "assets/brute.jpg"),
+                const SizedBox(height: 16.0),
+                const Text("Yesterday"),
+                const SizedBox(height: 16.0),
+                const ResultCard(
+                    title: "Brute",
+                    subtitle: "Campaign",
+                    result: "W",
+                    imageName: "assets/brute.jpg"),
+                const ResultCard(
+                    title: "Brute",
+                    subtitle: "Campaign",
+                    result: "W",
+                    imageName: "assets/brute.jpg"),
+                const SizedBox(height: 16.0),
+                const Text("Older"),
+                const SizedBox(height: 16.0),
+                const ResultCard(
+                    title: "Brute",
+                    subtitle: "Campaign",
+                    result: "L",
+                    imageName: "assets/brute.jpg"),
+              ]),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

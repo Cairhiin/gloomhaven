@@ -66,8 +66,9 @@ class MyApp extends StatelessWidget {
                 fontSize: 16.0,
                 color: Colors.white,
                 fontWeight: FontWeight.w700),
-            bodyText1: TextStyle(fontSize: 16.0, height: 1.5),
-            bodyText2: TextStyle(fontSize: 15.0),
+            bodyText1: TextStyle(
+                fontSize: 16.0, height: 1.5, color: Color(0xff534340)),
+            bodyText2: TextStyle(fontSize: 15.0, color: Color(0xff534340)),
             labelMedium:
                 TextStyle(fontSize: 15.0, color: Colors.white, height: 1.5)),
       ),

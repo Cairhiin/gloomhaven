@@ -8,8 +8,11 @@ class MyLevelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        elevation: 0.0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
         color: const Color(0xffF4E9E8),
-        elevation: 2.0,
         child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
@@ -24,8 +27,8 @@ class MyLevelCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline3),
                     Container(
                       alignment: Alignment.center,
-                      width: 100.0,
-                      height: 100.0,
+                      width: 90.0,
+                      height: 90.0,
                       decoration: BoxDecoration(
                           color: Theme.of(context).colorScheme.secondary,
                           border: Border.all(
