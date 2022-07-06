@@ -30,12 +30,13 @@ class AchievementCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(14.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(title,
                             style: Theme.of(context).textTheme.headline3),
+                        const SizedBox(height: 2.0),
                         Text(subtitle)
                       ],
                     ),

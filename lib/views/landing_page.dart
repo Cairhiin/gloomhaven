@@ -51,7 +51,7 @@ class _LandingPageView extends State<LandingPageView> {
 
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 350.0,
+        leadingWidth: 275.0,
         leading: Image.asset('assets/logo.png'),
         title: Row(
           children: [

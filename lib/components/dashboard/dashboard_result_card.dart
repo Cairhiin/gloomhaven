@@ -18,7 +18,7 @@ class ResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0.0,
-      color: const Color(0xffB22A16).withOpacity(0.05),
+      color: Colors.white,
       child: ClipPath(
           clipper: const ShapeBorderClipper(
               shape: RoundedRectangleBorder(

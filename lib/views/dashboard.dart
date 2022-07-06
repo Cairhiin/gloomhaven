@@ -38,7 +38,7 @@ class _DashboardViewState extends State<DashboardView> {
 
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 350.0,
+        leadingWidth: 275.0,
         leading: Image.asset('assets/logo.png'),
         title: Row(
           children: [
@@ -79,33 +79,34 @@ class _DashboardViewState extends State<DashboardView> {
             const SizedBox(width: 250.0),
           ],
         ),
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Row(
-                children: [
-                  TextButton(
-                    style: buttonStyle,
-                    onPressed: () {},
-                    child: Text(
-                      'LOG IN',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
+        flexibleSpace: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0.0, 6.0, 16.0, 4.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Angela_Morrow",
+                          style:
+                              TextStyle(fontSize: 14.0, color: Colors.white)),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Sign Out',
+                          style: TextStyle(fontSize: 13.0, color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
-                  TextButton(
-                    style: buttonStyle,
-                    onPressed: () {},
-                    child: Text(
-                      'SIGN UP',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                ),
+                Image.asset("assets/angela.jpg"),
+              ],
+            ),
+          ],
+        ),
       ),
       body: Center(
         child: Align(
