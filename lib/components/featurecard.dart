@@ -12,14 +12,15 @@ class FeatureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
+      elevation: 4.0,
+      shape: const RoundedRectangleBorder(
         side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
+          color: Colors.white,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: SizedBox(
-        width: 335,
+        width: 350,
         child: Row(
           children: <Widget>[
             Expanded(
