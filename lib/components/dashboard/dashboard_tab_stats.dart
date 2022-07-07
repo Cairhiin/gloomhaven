@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dashboard_friends_card.dart';
 import 'dashboard_feature_hero_card.dart';
-import 'dashboard_hero_card.dart';
 import 'dashboard_level_card.dart';
 
 class StatisticTab extends StatelessWidget {
@@ -14,6 +13,7 @@ class StatisticTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const textButtonStyle = TextStyle(color: Color(0xff534340));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
@@ -43,62 +43,70 @@ class StatisticTab extends StatelessWidget {
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
                       title: "ORCHID SPELLWEAVER",
-                      subtitle: "Level 7 - 349 XP",
-                      kills: 37,
-                      gold: 246,
-                      wins: 23,
-                      losses: 17,
-                      favoriteCard: "Fireorbs"),
+                      level: 5,
+                      kills: 21,
+                      gold: 136,
+                      winPerc: 43,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/spellweaver_bg.png"),
                   const SizedBox(width: 22.0),
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
                       title: "INOX BRUTE",
-                      subtitle: "Level 5 - 226 XP",
-                      kills: 21,
-                      gold: 134,
-                      wins: 17,
-                      losses: 12,
-                      favoriteCard: "Eye for an eye"),
+                      level: 7,
+                      kills: 19,
+                      gold: 236,
+                      winPerc: 76,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/brute_bg.png"),
                 ],
               ),
               const SizedBox(height: 22.0),
               Row(
                 children: [
-                  HeroCard(
+                  FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
                       title: "HUMAN SCOUNDREL",
                       level: 4,
                       gold: 157,
                       kills: 21,
-                      winPerc: 56),
+                      winPerc: 56,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/scoundrel_bg.png"),
                   const SizedBox(width: 22.0),
-                  HeroCard(
+                  FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "VERMINGLING TIEFLING",
+                      title: "VERMINGLING MINDTHIEF",
                       level: 3,
                       gold: 57,
                       kills: 11,
-                      winPerc: 36),
+                      winPerc: 36,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/mindthief_bg.png"),
                 ],
               ),
               const SizedBox(height: 22.0),
               Row(
                 children: [
-                  HeroCard(
+                  FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "Savvas Cragheart",
+                      title: "SAVVAS CRAGHEART",
                       level: 4,
                       gold: 115,
                       kills: 15,
-                      winPerc: 46),
+                      winPerc: 46,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/cragheart_bg.png"),
                   const SizedBox(width: 22.0),
-                  HeroCard(
+                  FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
                       title: "QUARYL TINKERER",
                       level: 1,
                       gold: 32,
                       kills: 2,
-                      winPerc: 100),
+                      winPerc: 100,
+                      textButtonStyle: textButtonStyle,
+                      imageFile: "assets/tinkerer_bg.png"),
                 ],
               ),
               const SizedBox(height: 22.0),

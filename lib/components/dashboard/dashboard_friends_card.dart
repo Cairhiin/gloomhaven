@@ -30,16 +30,15 @@ class FriendsCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline3),
                       const SizedBox(height: 10.0),
                       const FriendsDetailsCard(
-                          title: "Willow | Brute level 2 | Campaign",
-                          subtitle: "Crypt of the Damned"),
+                          title: "Willow", subtitle: " | level 2 | Campaign"),
                       const SizedBox(height: 3.0),
                       const FriendsDetailsCard(
-                          title: "JohnSnow | Spellweaver level 7 | Scenario",
-                          subtitle: "Black Barrow"),
+                          title: "JohnSnow",
+                          subtitle: " | Spellweaver level 7 | Scenario"),
                       const SizedBox(height: 3.0),
                       const FriendsDetailsCard(
-                          title: "Moghedien | Tinkerer level 4 | Scenario",
-                          subtitle: "Necromaster's Sanctum"),
+                          title: "Moghedien",
+                          subtitle: " | Tinkerer level 4 | Scenario"),
                       const SizedBox(height: 10.0),
                       Align(
                         alignment: Alignment.centerRight,
@@ -85,13 +84,13 @@ class FriendsDetailsCard extends StatelessWidget {
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(title),
-                  Text(subtitle,
-                      style: const TextStyle(fontWeight: FontWeight.w700))
+                  Text(title,
+                      style: const TextStyle(fontWeight: FontWeight.w700)),
+                  Text(subtitle)
                 ],
               ),
             ))

@@ -190,27 +190,27 @@ class GamesPlayedSidebar extends StatelessWidget {
                 const Text("Today"),
                 const SizedBox(height: 16.0),
                 const ResultCard(
-                    title: "Scoundrel",
+                    title: "SCOUNDREL",
                     subtitle: "Scenario",
                     result: "W",
                     imageName: "assets/scoundrel.jpg"),
                 const ResultCard(
-                    title: "Brute",
+                    title: "BRUTE",
                     subtitle: "Campaign",
                     result: "L",
                     imageName: "assets/brute.jpg"),
                 const ResultCard(
-                    title: "Scoundrel",
+                    title: "SCOUNDREL",
                     subtitle: "Scenario",
                     result: "L",
                     imageName: "assets/scoundrel.jpg"),
                 const ResultCard(
-                    title: "Tinkerer",
+                    title: "TINKERER",
                     subtitle: "Dungeon",
                     result: "W",
                     imageName: "assets/tinkerer.jpg"),
                 const ResultCard(
-                    title: "Brute",
+                    title: "BRUTE",
                     subtitle: "Campaign",
                     result: "W",
                     imageName: "assets/brute.jpg"),
@@ -218,12 +218,12 @@ class GamesPlayedSidebar extends StatelessWidget {
                 const Text("Yesterday"),
                 const SizedBox(height: 16.0),
                 const ResultCard(
-                    title: "Brute",
+                    title: "BRUTE",
                     subtitle: "Campaign",
                     result: "W",
                     imageName: "assets/brute.jpg"),
                 const ResultCard(
-                    title: "Brute",
+                    title: "BRUTE",
                     subtitle: "Campaign",
                     result: "W",
                     imageName: "assets/brute.jpg"),
@@ -231,7 +231,7 @@ class GamesPlayedSidebar extends StatelessWidget {
                 const Text("Older"),
                 const SizedBox(height: 16.0),
                 const ResultCard(
-                    title: "Brute",
+                    title: "BRUTE",
                     subtitle: "Campaign",
                     result: "L",
                     imageName: "assets/brute.jpg"),
