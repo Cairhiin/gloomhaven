@@ -32,7 +32,7 @@ class FeatureHeroCard extends StatelessWidget {
         ),
         child: SizedBox(
             width: 356.0,
-            height: 225.0,
+            height: 230.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -80,7 +80,9 @@ class FeatureHeroCard extends StatelessWidget {
                                 ],
                               ),
                               const SizedBox(height: 25.0),
-                              Row(
+                              ButtonBar(
+                                buttonPadding: const EdgeInsets.all(0),
+                                alignment: MainAxisAlignment.start,
                                 children: [
                                   ElevatedButton(
                                     onPressed: () {},

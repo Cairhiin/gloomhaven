@@ -40,7 +40,10 @@ class _DashboardViewState extends State<DashboardView> {
       appBar: AppBar(
         leadingWidth: 275.0,
         leading: Image.asset('assets/logo.png'),
-        title: Row(
+        title: ButtonBar(
+          alignment: MainAxisAlignment.start,
+          buttonPadding:
+              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
           children: [
             const SizedBox(width: 100.0),
             TextButton(
@@ -73,6 +76,14 @@ class _DashboardViewState extends State<DashboardView> {
               onPressed: () {},
               child: Text(
                 'FEATURES',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            ),
+            TextButton(
+              style: buttonStyle,
+              onPressed: () {},
+              child: Text(
+                'GAME EDITOR',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),

@@ -53,7 +53,10 @@ class _LandingPageView extends State<LandingPageView> {
       appBar: AppBar(
         leadingWidth: 275.0,
         leading: Image.asset('assets/logo.png'),
-        title: Row(
+        title: ButtonBar(
+          alignment: MainAxisAlignment.start,
+          buttonPadding:
+              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
           children: [
             const SizedBox(width: 100.0),
             TextButton(
@@ -87,7 +90,15 @@ class _LandingPageView extends State<LandingPageView> {
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
-            const SizedBox(width: 250.0),
+            TextButton(
+              style: buttonStyle,
+              onPressed: () {},
+              child: Text(
+                'GAME EDITOR',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            ),
+            const SizedBox(width: 150.0),
           ],
         ),
         actions: <Widget>[

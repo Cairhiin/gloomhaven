@@ -69,8 +69,12 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(
                 fontSize: 16.0, height: 1.5, color: Color(0xff534340)),
             bodyText2: TextStyle(fontSize: 15.0, color: Color(0xff534340)),
-            labelMedium:
-                TextStyle(fontSize: 15.0, color: Colors.white, height: 1.5)),
+            labelMedium: TextStyle(
+                fontSize: 16.0,
+                fontFamily: "RobotoCondensed",
+                color: Colors.white,
+                height: 1.5,
+                fontWeight: FontWeight.w400)),
       ),
       home: const LandingPageView(),
     );

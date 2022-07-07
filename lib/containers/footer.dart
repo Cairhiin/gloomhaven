@@ -30,7 +30,7 @@ class Footer extends StatelessWidget {
                 Text("Twitch", style: Theme.of(context).textTheme.labelMedium),
               ],
             ),
-            const SizedBox(width: 32.0),
+            const SizedBox(width: 100.0),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text("RESOURCES", style: Theme.of(context).textTheme.subtitle2),
               const SizedBox(height: 15.0),
@@ -40,7 +40,7 @@ class Footer extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelMedium),
               Text("CDPR", style: Theme.of(context).textTheme.labelMedium),
             ]),
-            const SizedBox(width: 32.0),
+            const SizedBox(width: 100.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -55,7 +55,7 @@ class Footer extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelMedium),
               ],
             ),
-            const SizedBox(width: 32.0),
+            const SizedBox(width: 100.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
