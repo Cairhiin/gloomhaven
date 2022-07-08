@@ -38,57 +38,59 @@ class _DashboardViewState extends State<DashboardView> {
 
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 275.0,
+        leadingWidth: 250.0,
         leading: Image.asset('assets/logo.png'),
-        title: ButtonBar(
-          alignment: MainAxisAlignment.start,
-          buttonPadding:
-              const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-          children: [
-            const SizedBox(width: 100.0),
-            TextButton(
-              style: buttonStyle,
-              onPressed: () {
-                Navigator.pushNamed(context, LandingPageView.routeName);
-              },
-              child: Text('HOME', style: Theme.of(context).textTheme.headline4),
-            ),
-            TextButton(
-              style: buttonStyle,
-              onPressed: () {},
-              child: Text(
-                'QUICK PLAY',
-                style: Theme.of(context).textTheme.headline4,
+        title: SizedBox(
+          child: ButtonBar(
+            alignment: MainAxisAlignment.start,
+            buttonPadding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+            children: [
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {
+                  Navigator.pushNamed(context, LandingPageView.routeName);
+                },
+                child:
+                    Text('HOME', style: Theme.of(context).textTheme.headline4),
               ),
-            ),
-            TextButton(
-              style: buttonStyle,
-              onPressed: () {
-                _toggleFatMenu();
-              },
-              child: Text(
-                'RULES',
-                style: Theme.of(context).textTheme.headline4,
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {},
+                child: Text(
+                  'QUICK PLAY',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
-            ),
-            TextButton(
-              style: buttonStyle,
-              onPressed: () {},
-              child: Text(
-                'FEATURES',
-                style: Theme.of(context).textTheme.headline4,
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {
+                  _toggleFatMenu();
+                },
+                child: Text(
+                  'RULES',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
-            ),
-            TextButton(
-              style: buttonStyle,
-              onPressed: () {},
-              child: Text(
-                'GAME EDITOR',
-                style: Theme.of(context).textTheme.headline4,
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {},
+                child: Text(
+                  'FEATURES',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
-            ),
-            const SizedBox(width: 250.0),
-          ],
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {},
+                child: Text(
+                  'GAME EDITOR',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+              ),
+              const SizedBox(width: 250.0),
+            ],
+          ),
         ),
         flexibleSpace: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -101,8 +103,10 @@ class _DashboardViewState extends State<DashboardView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Angela_Morrow",
-                          style:
-                              TextStyle(fontSize: 14.0, color: Colors.white)),
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                       TextButton(
                         onPressed: () {},
                         child: const Text(
