@@ -13,41 +13,44 @@ class _FatMenuState extends State<FatMenu> {
   Widget build(BuildContext context) {
     return Visibility(
       visible: widget.isVisible,
-      child: Row(children: [
-        Column(
-          children: const [
-            SizedBox(
-              width: 250.0,
-            )
-          ],
-        ),
-        Column(
-          children: [
-            Text("GAME MODES", style: Theme.of(context).textTheme.headline6),
-            const TextButton(onPressed: null, child: Text("Dungeons")),
-            const TextButton(onPressed: null, child: Text("Scenarios")),
-            const TextButton(onPressed: null, child: Text("Campaign")),
-            Text("PLAY WITH OTHERS",
-                style: Theme.of(context).textTheme.headline6),
-            const TextButton(onPressed: null, child: Text("Matchmaking")),
-            const TextButton(onPressed: null, child: Text("Private Lobby")),
-            const TextButton(onPressed: null, child: Text("Public Lobby")),
-          ],
-        ),
-        Column(
-          children: const [],
-        ),
-        Column(
-          children: const [],
-        ),
-        Column(
-          children: const [
-            SizedBox(
-              width: 250.0,
-            )
-          ],
-        )
-      ]),
+      child: Container(
+        color: const Color(0xffF8F1F0),
+        child: Row(children: [
+          Column(
+            children: const [
+              SizedBox(
+                width: 250.0,
+              )
+            ],
+          ),
+          Column(
+            children: [
+              Text("GAME MODES", style: Theme.of(context).textTheme.headline6),
+              const TextButton(onPressed: null, child: Text("Dungeons")),
+              const TextButton(onPressed: null, child: Text("Scenarios")),
+              const TextButton(onPressed: null, child: Text("Campaign")),
+              Text("PLAY WITH OTHERS",
+                  style: Theme.of(context).textTheme.headline6),
+              const TextButton(onPressed: null, child: Text("Matchmaking")),
+              const TextButton(onPressed: null, child: Text("Private Lobby")),
+              const TextButton(onPressed: null, child: Text("Public Lobby")),
+            ],
+          ),
+          Column(
+            children: const [],
+          ),
+          Column(
+            children: const [],
+          ),
+          Column(
+            children: const [
+              SizedBox(
+                width: 250.0,
+              )
+            ],
+          )
+        ]),
+      ),
     );
   }
 }
