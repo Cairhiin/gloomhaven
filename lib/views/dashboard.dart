@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 import '../components/fatmenu.dart';
 import '../containers/footer.dart';
 import '../views/landing_page.dart';
@@ -16,6 +17,7 @@ class DashboardView extends StatefulWidget {
 
 class _DashboardViewState extends State<DashboardView> {
   bool _isVisible = false;
+  double turns = 0.0;
   final ScrollController _scroller = ScrollController();
 
   void _toggleFatMenu() {
@@ -31,10 +33,15 @@ class _DashboardViewState extends State<DashboardView> {
     }
   }
 
+  void _changeRotation() {
+    setState(() => turns += 4 / 8.0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle buttonStyle =
-        TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
+    final ButtonStyle buttonStyle = TextButton.styleFrom(
+        primary: Theme.of(context).colorScheme.onPrimary,
+        padding: const EdgeInsets.all(0));
 
     return Scaffold(
       appBar: AppBar(
@@ -43,8 +50,6 @@ class _DashboardViewState extends State<DashboardView> {
         title: SizedBox(
           child: ButtonBar(
             alignment: MainAxisAlignment.start,
-            buttonPadding:
-                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
             children: [
               TextButton(
                 style: buttonStyle,
@@ -54,6 +59,7 @@ class _DashboardViewState extends State<DashboardView> {
                 child:
                     Text('HOME', style: Theme.of(context).textTheme.headline4),
               ),
+              const SizedBox(width: 20.0),
               TextButton(
                 style: buttonStyle,
                 onPressed: () {},
@@ -62,24 +68,58 @@ class _DashboardViewState extends State<DashboardView> {
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
+              const SizedBox(width: 20.0),
+              TextButton(
+                style: buttonStyle,
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Text(
+                      'RULES',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    AnimatedRotation(
+                      turns: 0,
+                      duration: const Duration(milliseconds: 300),
+                      child: Transform.rotate(
+                        angle: -90 * math.pi / 180,
+                        child: const Icon(
+                          Icons.chevron_left,
+                          size: 24.0,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(width: 20.0),
               TextButton(
                 style: buttonStyle,
                 onPressed: () {
                   _toggleFatMenu();
+                  _changeRotation();
                 },
-                child: Text(
-                  'RULES',
-                  style: Theme.of(context).textTheme.headline4,
+                child: Row(
+                  children: [
+                    Text(
+                      'FEATURES',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    AnimatedRotation(
+                      turns: turns,
+                      duration: const Duration(milliseconds: 300),
+                      child: Transform.rotate(
+                        angle: -90 * math.pi / 180,
+                        child: const Icon(
+                          Icons.chevron_left,
+                          size: 24.0,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
-              TextButton(
-                style: buttonStyle,
-                onPressed: () {},
-                child: Text(
-                  'FEATURES',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ),
+              const SizedBox(width: 20.0),
               TextButton(
                 style: buttonStyle,
                 onPressed: () {},
@@ -108,7 +148,10 @@ class _DashboardViewState extends State<DashboardView> {
                               color: Colors.white,
                               fontWeight: FontWeight.bold)),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, LandingPageView.routeName);
+                        },
                         child: const Text(
                           'Sign Out',
                           style: TextStyle(fontSize: 13.0, color: Colors.white),

@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: "RobotoCondensed",
                 color: Colors.white,
                 height: 1.5,
-                fontWeight: FontWeight.w400)),
+                fontWeight: FontWeight.normal)),
       ),
       home: const LandingPageView(),
     );
