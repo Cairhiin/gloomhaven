@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dashboard_friends_card.dart';
 import 'dashboard_feature_hero_card.dart';
 import 'dashboard_level_card.dart';
+import '../../hero_class.dart';
 
 class StatisticTab extends StatelessWidget {
   const StatisticTab({
@@ -13,6 +14,56 @@ class StatisticTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<HeroClass> heroes = [
+      const HeroClass(
+          title: "ORCHID SPELLWEAVER",
+          level: 5,
+          kills: 21,
+          gold: 136,
+          wins: 17,
+          losses: 19,
+          imageFile: "assets/spellweaver_bg.png"),
+      const HeroClass(
+          title: "INOX BRUTE",
+          level: 7,
+          kills: 19,
+          gold: 236,
+          wins: 15,
+          losses: 11,
+          imageFile: "assets/brute_bg.png"),
+      const HeroClass(
+          title: "HUMAN SCOUNDREL",
+          level: 4,
+          gold: 157,
+          kills: 21,
+          wins: 56,
+          losses: 56,
+          imageFile: "assets/scoundrel_bg.png"),
+      const HeroClass(
+          title: "VERMINGLING MINDTHIEF",
+          level: 3,
+          gold: 57,
+          kills: 11,
+          wins: 7,
+          losses: 9,
+          imageFile: "assets/mindthief_bg.png"),
+      const HeroClass(
+          title: "SAVVAS CRAGHEART",
+          level: 4,
+          gold: 115,
+          kills: 15,
+          wins: 5,
+          losses: 4,
+          imageFile: "assets/cragheart_bg.png"),
+      const HeroClass(
+          title: "QUARYL TINKERER",
+          level: 1,
+          gold: 32,
+          kills: 2,
+          wins: 1,
+          losses: 0,
+          imageFile: "assets/tinkerer_bg.png")
+    ];
     const textButtonStyle = TextStyle(color: Color(0xff534340));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -38,27 +89,29 @@ class StatisticTab extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       color: Color(0xff534340))),
               const SizedBox(height: 16.0),
+              Row(children: [
+                FeatureHeroCard(
+                    actionButtonStyle: actionButtonStyle,
+                    textButtonStyle: textButtonStyle,
+                    heroClass: heroes[0]),
+                const SizedBox(width: 22.0),
+                FeatureHeroCard(
+                    actionButtonStyle: actionButtonStyle,
+                    textButtonStyle: textButtonStyle,
+                    heroClass: heroes[1]),
+              ]),
+              const SizedBox(height: 22.0),
               Row(
                 children: [
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "ORCHID SPELLWEAVER",
-                      level: 5,
-                      kills: 21,
-                      gold: 136,
-                      winPerc: 43,
                       textButtonStyle: textButtonStyle,
-                      imageFile: "assets/spellweaver_bg.png"),
+                      heroClass: heroes[2]),
                   const SizedBox(width: 22.0),
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "INOX BRUTE",
-                      level: 7,
-                      kills: 19,
-                      gold: 236,
-                      winPerc: 76,
                       textButtonStyle: textButtonStyle,
-                      imageFile: "assets/brute_bg.png"),
+                      heroClass: heroes[3]),
                 ],
               ),
               const SizedBox(height: 22.0),
@@ -66,47 +119,13 @@ class StatisticTab extends StatelessWidget {
                 children: [
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "HUMAN SCOUNDREL",
-                      level: 4,
-                      gold: 157,
-                      kills: 21,
-                      winPerc: 56,
                       textButtonStyle: textButtonStyle,
-                      imageFile: "assets/scoundrel_bg.png"),
+                      heroClass: heroes[4]),
                   const SizedBox(width: 22.0),
                   FeatureHeroCard(
                       actionButtonStyle: actionButtonStyle,
-                      title: "VERMINGLING MINDTHIEF",
-                      level: 3,
-                      gold: 57,
-                      kills: 11,
-                      winPerc: 36,
                       textButtonStyle: textButtonStyle,
-                      imageFile: "assets/mindthief_bg.png"),
-                ],
-              ),
-              const SizedBox(height: 22.0),
-              Row(
-                children: [
-                  FeatureHeroCard(
-                      actionButtonStyle: actionButtonStyle,
-                      title: "SAVVAS CRAGHEART",
-                      level: 4,
-                      gold: 115,
-                      kills: 15,
-                      winPerc: 46,
-                      textButtonStyle: textButtonStyle,
-                      imageFile: "assets/cragheart_bg.png"),
-                  const SizedBox(width: 22.0),
-                  FeatureHeroCard(
-                      actionButtonStyle: actionButtonStyle,
-                      title: "QUARYL TINKERER",
-                      level: 1,
-                      gold: 32,
-                      kills: 2,
-                      winPerc: 100,
-                      textButtonStyle: textButtonStyle,
-                      imageFile: "assets/tinkerer_bg.png"),
+                      heroClass: heroes[5]),
                 ],
               ),
               const SizedBox(height: 22.0),

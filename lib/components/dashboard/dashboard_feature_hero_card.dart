@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
+import '../../hero_class.dart';
 
 class FeatureHeroCard extends StatelessWidget {
   const FeatureHeroCard(
       {Key? key,
       required this.actionButtonStyle,
       required this.textButtonStyle,
-      required this.title,
-      required this.gold,
-      required this.kills,
-      required this.level,
-      required this.winPerc,
-      required this.imageFile})
+      required this.heroClass})
       : super(key: key);
 
-  final String title;
-  final int gold;
-  final int level;
-  final int kills;
-  final int winPerc;
-  final String imageFile;
+  final HeroClass heroClass;
   final ButtonStyle actionButtonStyle;
   final TextStyle textButtonStyle;
 
@@ -46,7 +37,7 @@ class FeatureHeroCard extends StatelessWidget {
                           borderRadius: const BorderRadius.only(
                               topRight: Radius.circular(8),
                               topLeft: Radius.circular(8)),
-                          child: Image.asset(imageFile, fit: BoxFit.fitWidth)),
+                          child: heroClass.getHeroImage()),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -58,7 +49,7 @@ class FeatureHeroCard extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(title,
+                              Text(heroClass.title,
                                   style: Theme.of(context).textTheme.headline3),
                               Row(
                                 mainAxisAlignment:
@@ -66,15 +57,15 @@ class FeatureHeroCard extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Text("Level "),
-                                  Text("$level",
+                                  Text("${heroClass.level}",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                   const Text(" | Kills "),
-                                  Text("$kills",
+                                  Text("${heroClass.kills}",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                   const Text(" | Gold "),
-                                  Text("$gold",
+                                  Text("${heroClass.gold}",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
@@ -110,7 +101,8 @@ class FeatureHeroCard extends StatelessWidget {
                                 ),
                                 borderRadius: const BorderRadius.all(
                                     Radius.circular(100))),
-                            child: Text("$winPerc%",
+                            child: Text(
+                                "${heroClass.calculateWinPercentage()}%",
                                 style: const TextStyle(
                                     fontSize: 20.0, color: Colors.white)),
                           ),

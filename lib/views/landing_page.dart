@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 import '../components/fatmenu.dart';
 import '../containers/intro.dart';
 import '../containers/matchmaking.dart';
@@ -20,12 +21,17 @@ class LandingPageView extends StatefulWidget {
 
 class _LandingPageView extends State<LandingPageView> {
   bool _isVisible = false;
+  double turns = 0.0;
   final ScrollController _scroller = ScrollController();
 
   void _toggleFatMenu() {
     setState(() {
       _isVisible = !_isVisible;
     });
+  }
+
+  void _changeRotation() {
+    setState(() => turns += 4 / 8.0);
   }
 
   void _scrollToTop() {
@@ -71,20 +77,51 @@ class _LandingPageView extends State<LandingPageView> {
             ),
             TextButton(
               style: buttonStyle,
-              onPressed: () {
-                _toggleFatMenu();
-              },
-              child: Text(
-                'RULES',
-                style: Theme.of(context).textTheme.headline4,
+              onPressed: () {},
+              child: Row(
+                children: [
+                  Text(
+                    'RULES',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  AnimatedRotation(
+                    turns: 0,
+                    duration: const Duration(milliseconds: 300),
+                    child: Transform.rotate(
+                      angle: -90 * math.pi / 180,
+                      child: const Icon(
+                        Icons.chevron_left,
+                        size: 24.0,
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
             TextButton(
               style: buttonStyle,
-              onPressed: () {},
-              child: Text(
-                'FEATURES',
-                style: Theme.of(context).textTheme.headline4,
+              onPressed: () {
+                _toggleFatMenu();
+                _changeRotation();
+              },
+              child: Row(
+                children: [
+                  Text(
+                    'FEATURES',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  AnimatedRotation(
+                    turns: turns,
+                    duration: const Duration(milliseconds: 300),
+                    child: Transform.rotate(
+                      angle: -90 * math.pi / 180,
+                      child: const Icon(
+                        Icons.chevron_left,
+                        size: 24.0,
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
             TextButton(
