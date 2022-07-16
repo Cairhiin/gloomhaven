@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dashboard_friends_card.dart';
-import 'dashboard_feature_hero_card.dart';
-import 'dashboard_level_card.dart';
-import '../../hero_class.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_friends_card.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_feature_hero_card.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_level_card.dart';
+import 'package:gloomhaven/hero_class.dart';
 
 class StatisticTab extends StatelessWidget {
   const StatisticTab({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/components/featurecard.dart';
+import 'package:gloomhaven/components/featurecard.dart';
 
 class CustomContentContainer extends StatelessWidget {
   const CustomContentContainer({

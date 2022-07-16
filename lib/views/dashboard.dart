@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import '../components/fatmenu.dart';
-import '../containers/footer.dart';
-import '../views/landing_page.dart';
-import '../containers/dashboard_tabs.dart';
-import '../components/dashboard/dashboard_result_card.dart';
+import 'package:gloomhaven/components/fatmenu.dart';
+import 'package:gloomhaven/containers/footer.dart';
+import 'package:gloomhaven/views/landing_page.dart';
+import 'package:gloomhaven/containers/dashboard_tabs.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_result_card.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});

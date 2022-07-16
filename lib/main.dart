@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gloomhaven/views/dashboard.dart';
-import 'views/landing_page.dart';
+import 'package:gloomhaven/views/landing_page.dart';
 
 void main() {
   runApp(const MyApp());

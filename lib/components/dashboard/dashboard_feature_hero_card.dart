@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../hero_class.dart';
+import 'package:gloomhaven/hero_class.dart';
 
 class FeatureHeroCard extends StatelessWidget {
   const FeatureHeroCard(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard_achievement_card.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_achievement_card.dart';
 
 class AchievementTab extends StatelessWidget {
   const AchievementTab({

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-import '../components/fatmenu.dart';
-import '../containers/intro.dart';
-import '../containers/matchmaking.dart';
-import '../containers/card_list.dart';
-import '../containers/custom_content.dart';
-import '../containers/gameboard.dart';
-import '../containers/feature_list.dart';
-import '../containers/footer.dart';
-import '../views/dashboard.dart';
+import 'package:gloomhaven/components/fatmenu.dart';
+import 'package:gloomhaven/containers/intro.dart';
+import 'package:gloomhaven/containers/matchmaking.dart';
+import 'package:gloomhaven/containers/card_list.dart';
+import 'package:gloomhaven/containers/custom_content.dart';
+import 'package:gloomhaven/containers/gameboard.dart';
+import 'package:gloomhaven/containers/feature_list.dart';
+import 'package:gloomhaven/containers/footer.dart';
+import 'package:gloomhaven/views/dashboard.dart';
 
 class LandingPageView extends StatefulWidget {
   const LandingPageView({Key? key}) : super(key: key);
@@ -166,33 +166,30 @@ class _LandingPageView extends State<LandingPageView> {
         ],
       ),
       body: Center(
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Stack(children: [
-            SingleChildScrollView(
-              primary: false,
-              controller: _scroller,
-              child: Column(
-                children: [
-                  IntroContainer(raisedButtonStyle: raisedButtonStyle),
-                  MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
-                  CardListContainer(raisedButtonStyle: raisedButtonStyle),
-                  const CustomContentContainer(),
-                  GameboardContainer(raisedButtonStyle: raisedButtonStyle),
-                  FeatureList(raisedButtonStyle: raisedButtonStyle),
-                  const Footer()
-                ],
-              ),
+        child: Stack(children: [
+          SingleChildScrollView(
+            primary: false,
+            controller: _scroller,
+            child: Column(
+              children: [
+                IntroContainer(raisedButtonStyle: raisedButtonStyle),
+                MatchmakingContainer(raisedButtonStyle: raisedButtonStyle),
+                CardListContainer(raisedButtonStyle: raisedButtonStyle),
+                const CustomContentContainer(),
+                GameboardContainer(raisedButtonStyle: raisedButtonStyle),
+                FeatureList(raisedButtonStyle: raisedButtonStyle),
+                const Footer()
+              ],
             ),
-            Positioned(
-              left: 0.0,
-              top: 0.0,
-              child: FatMenu(
-                isVisible: _isVisible,
-              ),
-            )
-          ]),
-        ),
+          ),
+          Positioned(
+            left: 0.0,
+            top: 0.0,
+            child: FatMenu(
+              isVisible: _isVisible,
+            ),
+          )
+        ]),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

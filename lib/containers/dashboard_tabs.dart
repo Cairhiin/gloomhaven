@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../components/dashboard/dashboard_tab_stats.dart';
-import '../components/dashboard/dashboard_tab_achievements.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_tab_stats.dart';
+import 'package:gloomhaven/components/dashboard/dashboard_tab_achievements.dart';
 
 class DashboardTabs extends StatefulWidget {
   const DashboardTabs({Key? key}) : super(key: key);

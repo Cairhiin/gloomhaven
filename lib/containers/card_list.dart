@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/components/displaycard.dart';
+import 'package:gloomhaven/components/displaycard.dart';
 
 class CardListContainer extends StatelessWidget {
   const CardListContainer({
