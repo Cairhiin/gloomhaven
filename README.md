@@ -1,13 +1,14 @@
 # Gloomhaven
-Gloomhaven UI Flutter project. Two working screens with limited functionality. 
+Gloomhaven UI Flutter project. Two working screens with limited functionality. Coded with Flutter and designed with Figma. 
+Link to Figma prototype: https://www.figma.com/file/tFPogTRGBXEHS7VT7ojerq/Gloomhaven-UI-Design-Project?node-id=51482%3A8319
 
-# Purpose
+## Purpose
 Implementing UI/UX design principles
 
-# Instructions and scope
-
+## Instructions and scope
 Make certain you are running the newest Flutter version as the header text uses a drop shadow that is not supported by some of older versions of Flutter. 
 
+## Features
 The native prototype implements the following features:
 
 ### The landing page. 
@@ -22,7 +23,7 @@ Clicking on the To Top button will scroll the view back to the top.
 ### The fat menu.
 Clicking on the FEATURES button in the top navigation will open or close the Fat Menu.
 
-### Images
+## Images
 ![gloomhaven_prototype](https://user-images.githubusercontent.com/21054780/195308282-9709539c-19ea-407a-85b0-7dfccfea841c.png)
 
 ![dashboard_achievements](https://user-images.githubusercontent.com/21054780/195308468-d189bb8e-cf91-443e-99df-bf07397d7b0e.png)
